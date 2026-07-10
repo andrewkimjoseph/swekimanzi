@@ -80,7 +80,7 @@ function HomePage() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="text-sm text-foreground/80 leading-relaxed"
           >
-            I co-founded Canvassing, built Celina from scratch, and lead
+            I co-founded Canvassing, built Celina from scratch, and co-lead
             Salamander Tech Hub in Kenya.
           </motion.p>
           <motion.div
