@@ -59,9 +59,10 @@ export function PlaceholderImage({
         <img
           src={asset.url}
           alt={label}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${asset.fit === "contain" ? "object-contain p-4" : "object-cover"}`}
         />
       ) : (
+
         <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
           [REPLACE: {label}]
         </span>
