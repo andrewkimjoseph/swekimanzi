@@ -83,6 +83,18 @@ export const projects = [
     assetId: "logo-goodpax",
     featured: false,
   },
+  {
+    id: "partify",
+    name: "Partify",
+    tagline: "Flutter campus party marketplace — host, book, get paid.",
+    description:
+      "Sole-built end-to-end: Flutter consumer app for iOS and Android, Stripe Connect marketplace payments with scheduled host payouts, Firebase Cloud Functions backend, Stream Chat plus custom audio messaging, Branch deep links, and internal manager tooling. Shipped to v1.6.7.",
+    url: "#",
+    github: "#",
+    tags: ["Flutter", "Stripe Connect", "Firebase", "Stream Chat", "Branch"],
+    assetId: "logo-partify",
+    featured: false,
+  },
 ];
 
 export type Project = (typeof projects)[number];
