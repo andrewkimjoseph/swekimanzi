@@ -27,7 +27,7 @@ const EXPERIENCE = [
   { period: "2024 – present", role: "Founder & Builder", org: "Canvassing", desc: "Building a research marketplace and AI-agent tooling on Celo, from hackathon idea to funded product." },
   { period: "2026 – present", role: "Creator", org: "Celina", desc: "Solo-built an open-source SDK and MCP stack that gives AI agents a wallet on Celo." },
   { period: "2025 – present", role: "Co-Founder & Technical Lead", org: "Salamander Tech Hub", desc: "Co-founded and runs technical architecture for a Kenyan open-source builder community." },
-  { period: "2023 – 2024", role: "Founding Engineer", org: "Partify", desc: "[FILL: prior role]" },
+  { period: "2023 – 2024", role: "Founding Engineer", org: "Partify", desc: "Built Partify end-to-end as founding engineer — Flutter mobile app, Stripe marketplace payouts, Firebase backend, real-time chat, and ops/admin web tools." },
   { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
 ];
 
