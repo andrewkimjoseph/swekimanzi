@@ -24,6 +24,7 @@ const ASSET_MAP: Record<string, { url: string; fit?: "cover" | "contain" }> = {
   "logo-rez": logoRez,
   "logo-salamander": logoSalamander,
   "photo-team-canvassing": { ...photoTeamCanvassing, fit: "cover" },
+  "photo-salamander-community": { ...photoSalamanderCommunity, fit: "cover" },
   "badge-bwc7": { ...badgeBwc7, fit: "contain" },
   "badge-celo": { ...badgeCelo, fit: "contain" },
   "badge-gooddollar": { ...badgeGooddollar, fit: "contain" },
