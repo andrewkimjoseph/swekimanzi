@@ -1,4 +1,21 @@
 import avatarAndrew from "../assets/avatar-andrew.png.asset.json";
+import logoCanvassing from "../assets/logo-canvassing.png.asset.json";
+import logoCeleste from "../assets/logo-celeste.png.asset.json";
+import logoCelina from "../assets/logo-celina.png.asset.json";
+import logoGoclaim from "../assets/logo-goclaim.png.asset.json";
+import logoPax from "../assets/logo-pax.png.asset.json";
+import logoRez from "../assets/logo-rez.png.asset.json";
+import logoSalamander from "../assets/logo-salamander.png.asset.json";
+
+const ASSET_MAP: Record<string, { url: string }> = {
+  "logo-canvassing": logoCanvassing,
+  "logo-celeste": logoCeleste,
+  "logo-celina": logoCelina,
+  "logo-goclaim": logoGoclaim,
+  "logo-pax": logoPax,
+  "logo-rez": logoRez,
+  "logo-salamander": logoSalamander,
+};
 
 interface PlaceholderImageProps {
   assetId: string;
@@ -19,14 +36,23 @@ export function PlaceholderImage({
       : aspect === "wide"
         ? "aspect-[1200/630]"
         : "aspect-square";
+  const asset = ASSET_MAP[assetId];
   return (
     <div
       data-asset-id={assetId}
-      className={`${aspectClass} w-full bg-muted border border-border rounded-[2px] flex items-center justify-center shadow-brutal-sm ${className}`}
+      className={`${aspectClass} w-full bg-surface border border-border rounded-[2px] overflow-hidden flex items-center justify-center shadow-brutal-sm ${className}`}
     >
-      <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
-        [REPLACE: {label}]
-      </span>
+      {asset ? (
+        <img
+          src={asset.url}
+          alt={label}
+          className="w-full h-full object-contain p-4"
+        />
+      ) : (
+        <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
+          [REPLACE: {label}]
+        </span>
+      )}
     </div>
   );
 }
