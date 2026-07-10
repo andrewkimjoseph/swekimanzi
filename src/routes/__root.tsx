@@ -185,9 +185,9 @@ function MobileNav({
         {isOpen && (
           <motion.nav
             id="mobile-nav-menu"
-            initial={reduce ? false : { opacity: 0, y: -8, scale: 0.98 }}
+            initial={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={reduce ? false : { opacity: 0, y: -8, scale: 0.98 }}
+            exit={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-44 rounded-sm border border-border bg-background/95 p-2 shadow-brutal backdrop-blur-md"
           >
