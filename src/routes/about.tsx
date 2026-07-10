@@ -30,6 +30,12 @@ const EXPERIENCE = [
   { period: "2023 – 2024", role: "Founding Engineer", org: "Partify", desc: "Built Partify end-to-end as founding engineer — Flutter mobile app, Stripe marketplace payouts, Firebase backend, real-time chat, and ops/admin web tools." },
 ];
 
+const EDUCATION = [
+  { year: "2021", degree: "Bachelor of Education (Arts) — English and Literature", institution: "Kenyatta University" },
+  { year: "2024", degree: "Software Engineering", institution: "ALX Africa" },
+  { year: "2022", degree: "Mobile App Development — Flutter", institution: "Power Learn Project" },
+];
+
 const HIGHLIGHTS = [
   "Originated Canvassing at Build with Celo 7 (2024)",
   "Prezenti grant recipient",
