@@ -26,7 +26,7 @@
   --color-border: rgba(232, 237, 243, 0.14);
   --color-input: rgba(232, 237, 243, 0.14);
   --color-ring: #3b6fa0;
-  --color-overlay: 0 0 0;
+  --color-overlay: #000000;
 
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-sans: "Hanken Grotesk", sans-serif;
