@@ -21,6 +21,7 @@ const ASSET_MAP: Record<string, { url: string; fit?: "cover" | "contain" }> = {
   "logo-celina": logoCelina,
   "logo-goclaim": logoGoclaim,
   "logo-goodpax": logoGoodpax,
+  "logo-partify": logoPartify,
   "logo-pax": logoPax,
   "logo-rez": logoRez,
   "logo-salamander": logoSalamander,
