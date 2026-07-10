@@ -1,59 +1,35 @@
-Swap the Navy Trust palette for the uploaded 5-color set while keeping the current brutalist styling (2px hard borders, 0-radius, offset block shadows, uppercase display type). Only tokens and a few semantic mappings change — no layout/component rewrites.
+## Problem
+The hero section in `src/routes/index.tsx` has visual proportion and alignment issues:
 
-## New palette
+- The avatar grid column is `200px` but the avatar wrapper allows `max-w-[220px]`, so the image is constrained and the column feels tight against the large text block.
+- The tagline uses `min-h-[3rem]`, creating a large empty gap between the tagline and the description paragraph.
+- The two CTA buttons are visually heavy (full width, large padding, thick shadows) and dominate the lower portion of the hero.
+- Text hierarchy feels unbalanced: the name is very large (`text-5xl`), the tagline is `text-lg`, and the description is `text-sm`, with uneven spacing between them.
+- On mid-width desktop (the viewport in the screenshot), the text block wraps awkwardly while the image remains large.
 
-| # | Name | Hex | Role |
-|---|------|-----|------|
-| 01 | Medium Slate Blue | `#8806ff` | primary (buttons, key highlights) |
-| 02 | Periwinkle | `#a8baff` | accent (hovers, secondary marks) |
-| 03 | Columbia Blue | `#c8beff` | foreground / borders / shadows (off-lavender on black) |
-| 04 | Rich Black | `#0c0c18` | background / shell |
-| 05 | Celadon | `#b9f0d7` | secondary accent (tags, success-ish highlights) |
+## Plan
+1. **Rebalance the hero grid**
+   - Change `md:grid-cols-[200px_1fr]` to a wider fixed column, e.g. `md:grid-cols-[240px_1fr]` or `md:grid-cols-[280px_1fr]`, and remove the `max-w-[220px]` constraint so the avatar fills its column naturally.
+   - Vertically align the grid to `items-start` instead of `items-center` so the text block reads from the top of the image, creating a cleaner anchor.
 
-Rich Black stays the canvas, Columbia Blue replaces the previous off-white for borders/shadows/type, Medium Slate Blue becomes the primary action color, Periwinkle and Celadon carry secondary accents.
+2. **Tighten vertical rhythm**
+   - Remove the `min-h-[3rem]` from the tagline wrapper.
+   - Use consistent, smaller gaps between the name, tagline, description, and CTAs (e.g. `gap-3` or `gap-4` instead of mixed spacing).
+   - Ensure the tagline component itself does not reserve excessive height.
 
-## Changes
+3. **Refine CTA proportions**
+   - Reduce button padding slightly so the buttons feel like supporting elements, not the main visual weight.
+   - Consider making the buttons inline at the `sm` breakpoint instead of full-width stacked, or keep them side-by-side but with a more balanced width ratio.
+   - Ensure both buttons share the same height and baseline alignment.
 
-### 1. `src/styles.css` — `@theme inline` tokens
-Replace the Navy Trust `--color-*` block with:
-- `--color-background: #0c0c18`
-- `--color-foreground: #c8beff`
-- `--color-shell: #0c0c18`
-- `--color-surface: #14142a` (Rich Black lifted ~6% for card surface separation)
-- `--color-muted: #1a1a33`
-- `--color-muted-foreground: #a8baff`
-- `--color-card` / `--color-popover` / `--color-secondary`: `#14142a` with foreground `#c8beff`
-- `--color-primary: #8806ff`, `--color-primary-foreground: #ffffff`
-- `--color-accent: #a8baff`, `--color-accent-foreground: #0c0c18`
-- `--color-secondary-accent: #b9f0d7` (new token for Celadon; used by `tech-badge` and section labels)
-- `--color-border` / `--color-input` / `--color-ring: #c8beff`
-- `--color-destructive: #ff6b6b` (unchanged), destructive-foreground `#0c0c18`
+4. **Adjust type scale and spacing**
+   - Slightly reduce the name size on desktop or tighten line-height (`leading-[1.05]` is fine but verify it does not collide with the tagline).
+   - Bump the description from `text-sm` to `text-base` so it does not feel visually lighter than the tagline.
+   - Keep the brutalist style intact (hard borders, offset shadows, uppercase display type).
 
-Update the three brutal shadow tokens to use Columbia Blue so hard offsets stay visible on Rich Black:
-- `--shadow-brutal-sm: 2px 2px 0 0 #c8beff`
-- `--shadow-brutal: 4px 4px 0 0 #c8beff`
-- `--shadow-brutal-lg: 8px 8px 0 0 #c8beff`
-
-Set `<meta name="theme-color">` in `src/routes/__root.tsx` head to `#0c0c18`.
-
-### 2. Semantic accent touches in `src/styles.css`
-Small tweaks so all five colors show up intentionally, not just primary:
-- `tech-badge`: keep transparent bg + Columbia Blue border, but on `:hover` swap background to `#b9f0d7` (Celadon) with Rich Black text — gives the marquee/tag chips a lively accent.
-- `section-label`: primary bg stays Medium Slate Blue with white text.
-- `nav-segmented-item:hover`: use `--color-muted` (unchanged behavior, just re-tinted by tokens).
-- `nav-segmented-item-active`: inverts to `#c8beff` bg + `#0c0c18` text (already the pattern, just via new tokens).
-- `pill-link` underline: switch to Periwinkle (`--color-accent`) so it reads as a link accent, not body text.
-- Footer/link `hover:text-primary` becomes Medium Slate Blue automatically.
-
-### 3. `TypingTagline` cursor
-Cursor block currently uses `bg-foreground`. Keep it, but the class `text-primary`/`bg-primary` references were removed in the previous brutalist pass — no change needed. Verify tagline still reads as Columbia Blue on Rich Black.
-
-### 4. Memory update
-Update `mem://index.md` Core rules and `mem://design/palette` to describe the new palette (Medium Slate Blue / Periwinkle / Columbia Blue / Rich Black / Celadon) so future changes stay on-palette. Remove the "Navy Trust" description.
-
-### 5. Verify
-- `bun run typecheck`.
-- Playwright screenshots at 390×844 (mobile) and 1280×900 (desktop) of `/`, `/work`, `/about`, `/contact` to confirm: Rich Black background, Columbia Blue borders/shadows visible, Medium Slate Blue primary CTA, Periwinkle/Celadon accents present, no leftover navy or steel blue.
+5. **Verify responsive behavior**
+   - Check mobile: the avatar should stack above the text and remain centered with a reasonable max width.
+   - Check the breakpoint around `768px` to avoid the awkward mid-width state shown in the screenshot.
 
 ## Outcome
-Same brutalist structure — hard 2px borders, 0-radius, offset block shadows, uppercase display type — now on a Rich Black canvas with Medium Slate Blue as the loud primary, Columbia Blue as the structural off-color, and Periwinkle + Celadon as supporting accents.
+A hero section where the avatar and text feel proportionally balanced, vertical spacing is consistent, and the CTAs support rather than overwhelm the content.
