@@ -168,8 +168,19 @@ function MobileNav({
 }) {
   const reduce = useReducedMotion();
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+    };
+  }, [isOpen]);
+
   return (
-    <div className="relative md:hidden">
+    <div className="md:hidden">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
@@ -183,29 +194,53 @@ function MobileNav({
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.nav
-            id="mobile-nav-menu"
-            initial={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-44 rounded-sm border border-border bg-background/95 p-2 shadow-brutal backdrop-blur-md"
-          >
-            <ul className="flex flex-col gap-1">
-              {NAV.map((n) => (
-                <li key={n.to}>
-                  <Link
-                    to={n.to}
-                    className="block w-full rounded-sm px-3 py-2 text-left font-display text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:bg-muted focus-visible:text-primary focus-visible:outline-none"
-                    activeProps={{ className: "block w-full rounded-sm px-3 py-2 text-left font-display text-sm font-semibold uppercase tracking-widest text-primary bg-primary/10" }}
-                    activeOptions={{ exact: true }}
+          <>
+            <motion.div
+              initial={reduce ? undefined : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={reduce ? undefined : { opacity: 0 }}
+              transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed inset-0 z-40 bg-overlay/50 backdrop-blur-sm"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.nav
+              id="mobile-nav-menu"
+              initial={reduce ? undefined : { x: "100%" }}
+              animate={{ x: 0 }}
+              exit={reduce ? undefined : { x: "100%" }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="fixed top-0 right-0 z-50 h-full w-[72%] max-w-xs border-l border-border bg-background p-6 shadow-brutal-lg"
+            >
+              <div className="flex h-full flex-col">
+                <div className="mb-8 flex items-center justify-end">
+                  <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    aria-label="Close navigation menu"
+                    className="grid h-10 w-10 place-items-center rounded-sm border border-border bg-muted text-foreground transition-colors hover:border-primary/40 hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
-                    {n.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.nav>
+                    <X size={20} strokeWidth={2.5} />
+                  </button>
+                </div>
+                <ul className="flex flex-col gap-2">
+                  {NAV.map((n) => (
+                    <li key={n.to}>
+                      <Link
+                        to={n.to}
+                        onClick={() => setIsOpen(false)}
+                        className="block w-full rounded-sm px-4 py-3 text-left font-display text-base font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:bg-muted focus-visible:text-primary focus-visible:outline-none"
+                        activeProps={{ className: "block w-full rounded-sm px-4 py-3 text-left font-display text-base font-semibold uppercase tracking-widest text-primary bg-primary/10" }}
+                        activeOptions={{ exact: true }}
+                      >
+                        {n.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.nav>
+          </>
         )}
       </AnimatePresence>
     </div>

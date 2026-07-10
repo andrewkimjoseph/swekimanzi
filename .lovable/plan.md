@@ -1,24 +1,27 @@
-## Goal
-Make the mobile navigation feel less crowded by collapsing the four inline links into a single toggle that opens a dropdown menu.
+Replace the current mobile dropdown menu with a side drawer that slides in from the right.
 
 ## What will change
-1. **Header component (`src/routes/__root.tsx`)**
-   - Add a mobile-only hamburger toggle button using `lucide-react` icons (`Menu` / `X`).
-   - Keep the existing horizontal nav links for desktop (`md:flex`), hide them on mobile.
-   - Add a mobile dropdown panel that appears below the header when the toggle is open.
-   - Dropdown items will be the same four nav links stacked vertically, using existing semantic tokens (`bg-background`, `border-border`, `text-foreground`, `text-primary`).
-   - Use `motion/react` for a smooth open/close animation and respect reduced motion.
-   - Auto-close the dropdown when a link is clicked or the route changes.
 
-2. **Styles (`src/styles.css`)**
-   - No new color tokens needed. Reuse existing utilities and Tailwind variable classes.
-   - May add one small `@utility` for the mobile dropdown container if it keeps the JSX cleaner.
+### `src/routes/__root.tsx`
+- Keep the hamburger toggle button and the desktop horizontal nav exactly as-is.
+- Replace the dropdown `motion.nav` with a full-height side drawer:
+  - Slides in from the right (`x: "100%"` → `x: 0`).
+  - Fixed position, top-0 right-0, width ~72% of viewport (max-w-xs), full height.
+  - Background `bg-background/95` with `backdrop-blur-md` and a subtle left border `border-border`.
+  - Stacked nav links with larger tap targets and the same active-state styling.
+- Add a backdrop/overlay behind the drawer:
+  - Fades in with `AnimatePresence`.
+  - Clicking it closes the menu.
+  - `fixed inset-0 bg-background/40` or similar semitransparent scrim.
+- Keep auto-close on route change (already wired via `useRouterState`).
+- Respect reduced motion: skip the slide animation when `useReducedMotion()` is true.
+
+### `src/styles.css`
+- No new color tokens needed. Reuse existing semantic utilities.
+- If needed, add a tiny `@utility` for drawer shadow/elevation, but prefer existing `shadow-brutal` or `shadow-brutal-lg`.
 
 ## Verification
-- Run typecheck.
-- Capture mobile preview screenshots of the closed and open menu states.
+- Run typecheck / build.
+- Capture mobile viewport screenshots of the closed and open menu states.
+- Confirm tapping a link closes the drawer and navigates correctly.
 - Confirm desktop layout is unchanged.
-
-## Notes
-- The uploaded screenshot will be used as visual reference for the current crowded navbar, not embedded in the app.
-- No backend or route changes required.
