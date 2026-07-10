@@ -221,8 +221,8 @@
   transition: background-color 0.1s, color 0.1s;
 }
 .tech-badge:hover {
-  background-color: var(--color-secondary-accent);
-  color: var(--color-background);
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
 }
 
 @utility pill-link {
