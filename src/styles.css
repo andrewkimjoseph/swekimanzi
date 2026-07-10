@@ -11,6 +11,7 @@
   --color-accent: #a8baff;
   --color-accent-foreground: #0c0c18;
   --color-secondary-accent: #b9f0d7;
+  --color-tech-badge-hover: #c7bffa;
   --color-muted: #1a1a33;
   --color-muted-foreground: #a8baff;
   --color-surface: #14142a;
@@ -221,8 +222,8 @@
   transition: background-color 0.1s, color 0.1s;
 }
 .tech-badge:hover {
-  background-color: var(--color-primary);
-  color: var(--color-primary-foreground);
+  background-color: var(--color-tech-badge-hover);
+  color: var(--color-background);
 }
 
 @utility pill-link {
