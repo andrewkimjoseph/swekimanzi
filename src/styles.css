@@ -23,18 +23,19 @@
   --color-secondary-foreground: #e8edf3;
   --color-destructive: #ff6b6b;
   --color-destructive-foreground: #0f1b3d;
-  --color-border: rgba(232, 237, 243, 0.14);
-  --color-input: rgba(232, 237, 243, 0.14);
-  --color-ring: #3b6fa0;
+  --color-border: #e8edf3;
+  --color-input: #e8edf3;
+  --color-ring: #e8edf3;
 
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-sans: "Hanken Grotesk", sans-serif;
 
-  --radius-brutal: 2px;
+  --radius-brutal: 0px;
 
-  --shadow-brutal: 0 2px 8px -2px rgba(0, 0, 0, 0.22);
-  --shadow-brutal-sm: 0 1px 4px -1px rgba(0, 0, 0, 0.14);
-  --shadow-brutal-lg: 0 4px 16px -4px rgba(0, 0, 0, 0.28);
+  --shadow-brutal: 4px 4px 0 0 #e8edf3;
+  --shadow-brutal-sm: 2px 2px 0 0 #e8edf3;
+  --shadow-brutal-lg: 8px 8px 0 0 #e8edf3;
+
 }
 
 @layer base {
