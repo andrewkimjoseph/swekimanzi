@@ -57,7 +57,7 @@ export function PlaceholderImage({
   return (
     <div
       data-asset-id={assetId}
-      className={`${aspectClass} w-full bg-surface border border-border rounded-[2px] overflow-hidden flex items-center justify-center shadow-brutal-sm ${className}`}
+      className={`${aspectClass} w-full bg-foreground border border-border rounded-[2px] overflow-hidden flex items-center justify-center shadow-brutal-sm ${className}`}
     >
       {asset ? (
         <img
@@ -66,8 +66,7 @@ export function PlaceholderImage({
           className={`w-full h-full ${asset.fit === "contain" ? "object-contain p-4" : "object-cover"}`}
         />
       ) : (
-
-        <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
+        <span className="font-display text-[11px] uppercase tracking-widest text-background/70 px-2 text-center">
           [REPLACE: {label}]
         </span>
       )}
