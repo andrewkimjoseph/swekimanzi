@@ -89,7 +89,7 @@ function HomePage() {
             initial={reduce ? false : { y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 mt-1 md:mt-0"
+            className="flex flex-col sm:flex-row gap-5 mt-1 md:mt-0"
           >
             <Link to="/work" className="btn-hero-primary">View work</Link>
             <Link to="/contact" className="btn-hero-tertiary">Get in touch</Link>
