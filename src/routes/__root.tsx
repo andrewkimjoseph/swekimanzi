@@ -200,7 +200,7 @@ function MobileNav({
               animate={{ opacity: 1 }}
               exit={reduce ? undefined : { opacity: 0 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-0 z-40 bg-background/40 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-background/70 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
               aria-hidden="true"
             />
@@ -210,7 +210,7 @@ function MobileNav({
               animate={{ x: 0 }}
               exit={reduce ? undefined : { x: "100%" }}
               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed top-0 right-0 z-50 h-full w-[72%] max-w-xs border-l border-border bg-background/95 p-6 shadow-brutal-lg backdrop-blur-md"
+              className="fixed top-0 right-0 z-50 h-full w-[72%] max-w-xs border-l border-border bg-background p-6 shadow-brutal-lg"
             >
               <div className="flex h-full flex-col">
                 <div className="mb-8 flex items-center justify-end">
