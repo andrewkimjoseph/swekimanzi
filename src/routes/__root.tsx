@@ -45,7 +45,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           >
             Try again
           </button>
-          <a href="/" className="btn-hero-tertiary text-black border-black">Go home</a>
+          <a href="/" className="btn-hero-tertiary">Go home</a>
         </div>
       </div>
     </div>
@@ -57,7 +57,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#6367FF" },
+      { name: "theme-color", content: "#0d1b2a" },
       { title: "Andrew Kim Joseph | Founder & Builder on Celo" },
       {
         name: "description",
@@ -123,7 +123,7 @@ function Header() {
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="header-bar"
     >
-      <Link to="/" className="font-display font-extrabold text-2xl text-white tracking-tight">
+      <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight">
         AKJ
       </Link>
       <nav className="flex gap-2 flex-wrap justify-end">
@@ -132,7 +132,7 @@ function Header() {
             key={n.to}
             to={n.to}
             className="section-label-inverse"
-            activeProps={{ className: "section-label-inverse pill-link bg-white/10" }}
+            activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
             activeOptions={{ exact: true }}
           >
             {n.label}
@@ -145,13 +145,13 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="mt-16 mb-8 pt-8 border-t-2 border-[#8494ff] text-center text-white/60 text-xs font-display">
+    <footer className="mt-16 mb-8 pt-8 border-t border-border text-center text-foreground/60 text-xs font-display">
       <p className="uppercase tracking-widest">Andrew Kim Joseph — building on Celo</p>
-      <div className="mt-3 flex justify-center gap-4 text-white/85">
-        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-4">GitHub</a>
-        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-4">LinkedIn</a>
-        <a href={socialLinks.x} target="_blank" rel="noopener noreferrer" className="hover:text-white underline underline-offset-4">X</a>
-        <a href={`mailto:${socialLinks.email}`} className="hover:text-white underline underline-offset-4">Email</a>
+      <div className="mt-3 flex justify-center gap-4 text-foreground/85">
+        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline underline-offset-4">GitHub</a>
+        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline underline-offset-4">LinkedIn</a>
+        <a href={socialLinks.x} target="_blank" rel="noopener noreferrer" className="hover:text-primary underline underline-offset-4">X</a>
+        <a href={`mailto:${socialLinks.email}`} className="hover:text-primary underline underline-offset-4">Email</a>
       </div>
     </footer>
   );

@@ -28,10 +28,10 @@ function WorkPage() {
   return (
     <div className="py-8 flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-white tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-foreground tracking-tight">
           Work
         </h1>
-        <p className="text-sm text-white/80">
+        <p className="text-sm text-foreground/80">
           Research marketplaces, AI agent infrastructure, and community tooling.
         </p>
       </header>
@@ -45,7 +45,7 @@ function WorkPage() {
               </div>
               <h2 className="font-display font-bold text-xl">{p.name}</h2>
               <p className="text-sm font-semibold">{p.tagline}</p>
-              <p className="text-sm text-black/80">{p.description}</p>
+              <p className="text-sm text-foreground/80">{p.description}</p>
               <div className="flex flex-wrap gap-1.5 mt-1">
                 {p.tags.map((t) => (
                   <span key={t} className="tech-badge">{t}</span>
