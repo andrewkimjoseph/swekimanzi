@@ -1,38 +1,24 @@
-Goal: Replace the current Neon Mint palette (bright mint glow, dark teal surfaces) with a calmer Navy Trust palette and remove the AI-coded glow aesthetic.
+## Goal
+Make the mobile navigation feel less crowded by collapsing the four inline links into a single toggle that opens a dropdown menu.
 
-## Changes
+## What will change
+1. **Header component (`src/routes/__root.tsx`)**
+   - Add a mobile-only hamburger toggle button using `lucide-react` icons (`Menu` / `X`).
+   - Keep the existing horizontal nav links for desktop (`md:flex`), hide them on mobile.
+   - Add a mobile dropdown panel that appears below the header when the toggle is open.
+   - Dropdown items will be the same four nav links stacked vertically, using existing semantic tokens (`bg-background`, `border-border`, `text-foreground`, `text-primary`).
+   - Use `motion/react` for a smooth open/close animation and respect reduced motion.
+   - Auto-close the dropdown when a link is clicked or the route changes.
 
-1. **Redesign tokens in `src/styles.css`**
-   - Map the Navy Trust palette to semantic tokens:
-     - `--color-background`: deep navy `#0f1b3d`
-     - `--color-foreground`: crisp off-white `#e8edf3`
-     - `--color-primary`: muted steel blue `#3b6fa0`
-     - `--color-primary-foreground`: off-white `#e8edf3`
-     - `--color-accent`: lighter steel blue `#5b8ec2`
-     - `--color-accent-foreground`: deep navy `#0f1b3d`
-     - `--color-muted`: mid navy `#1e3a5f`
-     - `--color-muted-foreground`: soft blue-gray `#b0c4d8`
-     - `--color-surface/card/popover`: mid navy `#1e3a5f`
-     - `--color-border/ring/input`: off-white at low opacity
-     - `--color-destructive`: warm error red
-   - Remove or drastically soften `--shadow-brutal*` — replace mint glow with subtle navy elevation or no glow at all.
+2. **Styles (`src/styles.css`)**
+   - No new color tokens needed. Reuse existing utilities and Tailwind variable classes.
+   - May add one small `@utility` for the mobile dropdown container if it keeps the JSX cleaner.
 
-2. **Refactor `@utility` classes**
-   - `app-shell`, `header-bar`: use `--color-background` and a subtle off-white border.
-   - `btn-hero-primary`: primary blue background, off-white text, no glow, subtle shadow.
-   - `btn-hero-tertiary`: transparent with primary blue border/text.
-   - `card`, `card-muted`, `project-card`, `tech-badge`: navy surfaces, subtle borders, calm hover states.
-   - `section-label` / `section-label-inverse`: navy/primary variants.
-   - `pill-link`: primary blue underline.
+## Verification
+- Run typecheck.
+- Capture mobile preview screenshots of the closed and open menu states.
+- Confirm desktop layout is unchanged.
 
-3. **Audit and update component/routes for hardcoded colors**
-   - Search for remaining `text-white`, `text-black`, `bg-black`, `border-black`, `bg-white`, `text-white/...`, `text-primary`, `bg-primary`, or mint-specific values in `src/components/` and `src/routes/`.
-   - Replace with semantic classes: `text-foreground`, `text-primary`, `bg-background`, `bg-surface`, `border-border`, etc.
-   - Update `theme-color` meta in `src/routes/__root.tsx` to `#0f1b3d`.
-
-4. **Verify**
-   - Run `bun run typecheck`.
-   - Open the preview and confirm the home, work, about, and contact pages render with the Navy Trust palette and no broken contrast or residual mint glow.
-
-## Outcome
-A calm, authoritative navy-and-white portfolio with subtle depth, no neon glow, and a more human, less AI-generated feel.
+## Notes
+- The uploaded screenshot will be used as visual reference for the current crowded navbar, not embedded in the app.
+- No backend or route changes required.

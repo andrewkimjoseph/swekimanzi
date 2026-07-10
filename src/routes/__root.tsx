@@ -8,8 +8,9 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -116,6 +117,13 @@ const NAV = [
 
 function Header() {
   const reduce = useReducedMotion();
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
     <motion.header
       initial={reduce ? false : { y: -16, opacity: 0 }}
@@ -126,20 +134,81 @@ function Header() {
       <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight">
         AKJ
       </Link>
-      <nav className="flex gap-2 flex-wrap justify-end">
-        {NAV.map((n) => (
-          <Link
-            key={n.to}
-            to={n.to}
-            className="section-label-inverse"
-            activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
-            activeOptions={{ exact: true }}
-          >
-            {n.label}
-          </Link>
-        ))}
-      </nav>
+
+      <DesktopNav />
+      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
     </motion.header>
+  );
+}
+
+function DesktopNav() {
+  return (
+    <nav className="hidden md:flex gap-2">
+      {NAV.map((n) => (
+        <Link
+          key={n.to}
+          to={n.to}
+          className="section-label-inverse"
+          activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
+          activeOptions={{ exact: true }}
+        >
+          {n.label}
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+function MobileNav({
+  isOpen,
+  setIsOpen,
+}: {
+  isOpen: boolean;
+  setIsOpen: (open: boolean) => void;
+}) {
+  const reduce = useReducedMotion();
+
+  return (
+    <div className="relative md:hidden">
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+        aria-controls="mobile-nav-menu"
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+        className="grid h-10 w-10 place-items-center rounded-sm border border-border bg-muted text-foreground transition-colors hover:border-primary/40 hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+      >
+        {isOpen ? <X size={20} strokeWidth={2.5} /> : <Menu size={20} strokeWidth={2.5} />}
+      </button>
+
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.nav
+            id="mobile-nav-menu"
+            initial={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="absolute right-4 top-[calc(100%+0.5rem)] z-50 w-44 rounded-sm border border-border bg-background/95 p-2 shadow-brutal backdrop-blur-md"
+          >
+            <ul className="flex flex-col gap-1">
+              {NAV.map((n) => (
+                <li key={n.to}>
+                  <Link
+                    to={n.to}
+                    className="block w-full rounded-sm px-3 py-2 text-left font-display text-sm font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:bg-muted focus-visible:text-primary focus-visible:outline-none"
+                    activeProps={{ className: "block w-full rounded-sm px-3 py-2 text-left font-display text-sm font-semibold uppercase tracking-widest text-primary bg-primary/10" }}
+                    activeOptions={{ exact: true }}
+                  >
+                    {n.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 
