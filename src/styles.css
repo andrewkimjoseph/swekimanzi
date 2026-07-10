@@ -251,7 +251,7 @@
   white-space: nowrap;
 }
 .nav-segmented-item:last-child { border-right: 0; }
-.nav-segmented-item:hover { background-color: var(--color-muted); }
+.nav-segmented-item:hover { background-color: var(--color-muted); color: var(--color-primary-foreground); }
 
 @utility nav-segmented-item-active {
   background-color: var(--color-foreground);
