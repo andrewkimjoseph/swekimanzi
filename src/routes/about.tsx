@@ -131,9 +131,7 @@ function AboutPage() {
         <Reveal delay={0.3}>
           <article className="card">
             <div className="flex flex-col sm:flex-row gap-4">
-              <div className="w-20 h-20 shrink-0 bg-surface border border-border rounded-[2px] overflow-hidden shadow-brutal-sm">
-                <PlaceholderImage assetId="logo-partify" label="Partify" aspect="square" className="w-20 h-20" />
-              </div>
+              <PlaceholderImage assetId="logo-partify" label="Partify" aspect="square" className="w-20 h-20 shrink-0" />
               <div className="flex-1">
                 <h2 className="font-display font-bold text-xl">Partify</h2>
                 <p className="mt-2 text-sm leading-relaxed">
