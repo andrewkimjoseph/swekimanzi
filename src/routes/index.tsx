@@ -48,7 +48,7 @@ function HomePage() {
   return (
     <div className="py-8 flex flex-col gap-16">
       {/* HERO */}
-      <section className="grid md:grid-cols-[260px_1fr] gap-8 items-start">
+      <section className="grid md:grid-cols-[260px_1fr] gap-8 md:items-stretch">
         <motion.div
           initial={reduce ? false : { scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
@@ -57,37 +57,39 @@ function HomePage() {
         >
           <AvatarPlaceholder />
         </motion.div>
-        <div className="flex flex-col gap-3">
-          <motion.h1
-            initial={reduce ? false : { y: 16, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.05, duration: 0.5 }}
-            className="font-display font-extrabold text-4xl md:text-[2.75rem] text-foreground leading-[1.05] tracking-tight"
-          >
-            Andrew Kim Joseph
-          </motion.h1>
-          <motion.p
-            initial={reduce ? false : { y: 16, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
-            className="text-lg text-foreground/85"
-          >
-            <TypingTagline />
-          </motion.p>
-          <motion.p
-            initial={reduce ? false : { y: 16, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-base text-foreground/80 leading-relaxed"
-          >
-            I co-founded Canvassing, built Celina from scratch, and co-lead
-            Salamander Tech Hub in Kenya.
-          </motion.p>
+        <div className="flex flex-col gap-3 md:justify-between">
+          <div className="flex flex-col gap-3">
+            <motion.h1
+              initial={reduce ? false : { y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.05, duration: 0.5 }}
+              className="font-display font-extrabold text-4xl md:text-[2.75rem] text-foreground leading-[1.05] tracking-tight"
+            >
+              Andrew Kim Joseph
+            </motion.h1>
+            <motion.p
+              initial={reduce ? false : { y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.15, duration: 0.5 }}
+              className="text-lg text-foreground/85"
+            >
+              <TypingTagline />
+            </motion.p>
+            <motion.p
+              initial={reduce ? false : { y: 16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-base text-foreground/80 leading-relaxed"
+            >
+              I co-founded Canvassing, built Celina from scratch, and co-lead
+              Salamander Tech Hub in Kenya.
+            </motion.p>
+          </div>
           <motion.div
             initial={reduce ? false : { y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="flex flex-col sm:flex-row gap-3 mt-1"
+            className="flex flex-col sm:flex-row gap-3 mt-1 md:mt-0"
           >
             <Link to="/work" className="btn-hero-primary">View work</Link>
             <Link to="/contact" className="btn-hero-tertiary">Get in touch</Link>
