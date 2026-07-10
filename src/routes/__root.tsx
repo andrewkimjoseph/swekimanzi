@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -123,8 +123,8 @@ function Header() {
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="header-bar"
     >
-      <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight shrink-0">
-        AKJ
+      <Link to="/" className="shrink-0">
+        <img src="/logo.png" alt="Andrew Kim Joseph" className="h-8 w-auto" />
       </Link>
       <nav className="nav-segmented">
         {NAV.map((n) => (
