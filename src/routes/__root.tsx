@@ -123,16 +123,16 @@ function Header() {
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       className="header-bar"
     >
-      <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight">
+      <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight shrink-0">
         AKJ
       </Link>
-      <nav className="flex gap-2 flex-wrap justify-end">
+      <nav className="nav-segmented">
         {NAV.map((n) => (
           <Link
             key={n.to}
             to={n.to}
-            className="section-label-inverse"
-            activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
+            className="nav-segmented-item"
+            activeProps={{ className: "nav-segmented-item-active" }}
             activeOptions={{ exact: true }}
           >
             {n.label}
