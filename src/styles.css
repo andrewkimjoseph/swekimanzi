@@ -150,11 +150,12 @@
   background-color: transparent;
   color: var(--color-foreground);
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 0.875rem 1.25rem;
   border: 2px solid var(--color-border);
+  box-shadow: var(--shadow-brutal);
   border-radius: 0;
   display: inline-flex;
   align-items: center;
@@ -162,7 +163,7 @@
   transition: transform 0.1s, box-shadow 0.1s;
 }
 .btn-hero-tertiary:hover { transform: translate(-2px, -2px); box-shadow: var(--shadow-brutal); }
-.btn-hero-tertiary:active { transform: translate(2px, 2px); box-shadow: none; }
+.btn-hero-tertiary:active { transform: translate(4px, 4px); box-shadow: none; }
 
 @utility card {
   background-color: var(--color-surface);
