@@ -51,8 +51,17 @@ function ContactPage() {
 
       <div className="flex flex-col gap-5">
         <Reveal>
-          <a href={`mailto:${socialLinks.email}`} className="btn-hero-primary">
-            Email — {socialLinks.email}
+          <a
+            href={`mailto:${socialLinks.email}`}
+            className="card block hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-lg transition-transform"
+          >
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <div className="font-display font-bold text-lg">Email</div>
+                <div className="text-xs text-foreground/70 break-all">{socialLinks.email}</div>
+              </div>
+              <span className="font-display uppercase tracking-widest text-xs shrink-0">Open →</span>
+            </div>
           </a>
         </Reveal>
 
