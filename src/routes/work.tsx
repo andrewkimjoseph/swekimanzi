@@ -36,7 +36,7 @@ function WorkPage() {
         </p>
       </header>
 
-      <div className="grid sm:grid-cols-2 gap-4">
+      <div className="grid sm:grid-cols-2 gap-8">
         {projects.map((p, i) => (
           <Reveal key={p.id} delay={(i % 2) * 0.08}>
             <article className="project-card h-full">
