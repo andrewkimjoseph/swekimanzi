@@ -1,3 +1,5 @@
+import avatarAndrew from "../assets/avatar-andrew.png.asset.json";
+
 interface PlaceholderImageProps {
   assetId: string;
   label: string;
