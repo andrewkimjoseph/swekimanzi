@@ -4,11 +4,10 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
@@ -161,32 +160,15 @@ function Footer() {
   );
 }
 
-function AnimatedOutlet() {
-  const reduce = useReducedMotion();
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-  return (
-    <AnimatePresence mode="wait">
-      <motion.main
-        key={pathname}
-        initial={reduce ? false : { opacity: 0, x: 8 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={reduce ? undefined : { opacity: 0, x: -8 }}
-        transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-        className="flex-1"
-      >
-        <Outlet />
-      </motion.main>
-    </AnimatePresence>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
       <div className="app-shell">
         <Header />
-        <AnimatedOutlet />
+        <main className="flex-1">
+          <Outlet />
+        </main>
         <Footer />
       </div>
     </QueryClientProvider>
