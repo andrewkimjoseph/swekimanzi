@@ -46,7 +46,7 @@ export function PlaceholderImage({
         <img
           src={asset.url}
           alt={label}
-          className="w-full h-full object-contain p-4"
+          className="w-full h-full object-cover"
         />
       ) : (
         <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
