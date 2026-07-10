@@ -1,3 +1,5 @@
+import avatarAndrew from "../assets/avatar-andrew.png.asset.json";
+
 interface PlaceholderImageProps {
   assetId: string;
   label: string;
@@ -33,11 +35,13 @@ export function AvatarPlaceholder({ className = "" }: { className?: string }) {
   return (
     <div
       data-asset-id="avatar-andrew"
-      className={`aspect-square w-full bg-surface border border-border rounded-[2px] flex items-center justify-center shadow-brutal ${className}`}
+      className={`aspect-square w-full bg-surface border border-border rounded-[2px] overflow-hidden shadow-brutal ${className}`}
     >
-      <span className="font-display font-extrabold text-6xl md:text-7xl text-foreground tracking-tight">
-        AKJ
-      </span>
+      <img
+        src={avatarAndrew.url}
+        alt="Andrew Kim Joseph"
+        className="w-full h-full object-cover"
+      />
     </div>
   );
 }
