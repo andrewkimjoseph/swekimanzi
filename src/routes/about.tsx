@@ -24,9 +24,9 @@ export const Route = createFileRoute("/about")({
 });
 
 const EXPERIENCE = [
-  { period: "2024 – present", role: "Founder & Builder", org: "Canvassing", desc: "[FILL: your one-liner]" },
-  { period: "2026 – present", role: "Creator", org: "Celina", desc: "[FILL: your one-liner]" },
-  { period: "[YEAR] – present", role: "Co-Founder & Technical Lead", org: "Salamander Tech Hub", desc: "[FILL: your one-liner]" },
+  { period: "2024 – present", role: "Founder & Builder", org: "Canvassing", desc: "Building a research marketplace and AI-agent tooling on Celo, from hackathon idea to funded product." },
+  { period: "2026 – present", role: "Creator", org: "Celina", desc: "Solo-built an open-source SDK and MCP stack that gives AI agents a wallet on Celo." },
+  { period: "[YEAR] – present", role: "Co-Founder & Technical Lead", org: "Salamander Tech Hub", desc: "Co-founded and runs technical architecture for a Kenyan open-source builder community." },
   { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
   { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
 ];
