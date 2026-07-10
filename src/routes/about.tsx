@@ -37,7 +37,7 @@ const HIGHLIGHTS = [
   "Celina registered on 8004scan (agent #9263)",
   "8 published Celo Forum research reports",
   "Client work with Wayst Recycling, Minilend, Exion Finance",
-  "500+ Salamander community members",
+  "100+ Salamander community members",
 ];
 
 function AboutPage() {
