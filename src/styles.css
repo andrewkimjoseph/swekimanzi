@@ -5,36 +5,37 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --color-shell: #0f1b3d;
-  --color-primary: #3b6fa0;
-  --color-primary-foreground: #e8edf3;
-  --color-accent: #5b8ec2;
-  --color-accent-foreground: #0f1b3d;
-  --color-muted: #1e3a5f;
-  --color-muted-foreground: #b0c4d8;
-  --color-surface: #1e3a5f;
-  --color-background: #0f1b3d;
-  --color-foreground: #e8edf3;
-  --color-card: #1e3a5f;
-  --color-card-foreground: #e8edf3;
-  --color-popover: #1e3a5f;
-  --color-popover-foreground: #e8edf3;
-  --color-secondary: #1e3a5f;
-  --color-secondary-foreground: #e8edf3;
+  --color-shell: #0c0c18;
+  --color-primary: #8806ff;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #a8baff;
+  --color-accent-foreground: #0c0c18;
+  --color-secondary-accent: #b9f0d7;
+  --color-muted: #1a1a33;
+  --color-muted-foreground: #a8baff;
+  --color-surface: #14142a;
+  --color-background: #0c0c18;
+  --color-foreground: #c8beff;
+  --color-card: #14142a;
+  --color-card-foreground: #c8beff;
+  --color-popover: #14142a;
+  --color-popover-foreground: #c8beff;
+  --color-secondary: #14142a;
+  --color-secondary-foreground: #c8beff;
   --color-destructive: #ff6b6b;
-  --color-destructive-foreground: #0f1b3d;
-  --color-border: #e8edf3;
-  --color-input: #e8edf3;
-  --color-ring: #e8edf3;
+  --color-destructive-foreground: #0c0c18;
+  --color-border: #c8beff;
+  --color-input: #c8beff;
+  --color-ring: #c8beff;
 
   --font-display: "Bricolage Grotesque", sans-serif;
   --font-sans: "Hanken Grotesk", sans-serif;
 
   --radius-brutal: 0px;
 
-  --shadow-brutal: 4px 4px 0 0 #e8edf3;
-  --shadow-brutal-sm: 2px 2px 0 0 #e8edf3;
-  --shadow-brutal-lg: 8px 8px 0 0 #e8edf3;
+  --shadow-brutal: 4px 4px 0 0 #c8beff;
+  --shadow-brutal-sm: 2px 2px 0 0 #c8beff;
+  --shadow-brutal-lg: 8px 8px 0 0 #c8beff;
 
 }
 
@@ -212,10 +213,15 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   white-space: nowrap;
+  transition: background-color 0.1s, color 0.1s;
+}
+.tech-badge:hover {
+  background-color: var(--color-secondary-accent);
+  color: var(--color-background);
 }
 
 @utility pill-link {
-  border-bottom: 3px solid var(--color-foreground);
+  border-bottom: 3px solid var(--color-accent);
   color: var(--color-foreground);
   font-family: var(--font-display);
   font-weight: 700;
