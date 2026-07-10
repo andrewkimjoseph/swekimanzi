@@ -100,7 +100,7 @@ function HomePage() {
       {/* PILLARS */}
       <section className="flex flex-col gap-6">
         <span className="section-label-inverse w-fit">What I build</span>
-        <div className="grid gap-4">
+        <div className="grid gap-8">
           {PILLARS.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.1}>
               <a
