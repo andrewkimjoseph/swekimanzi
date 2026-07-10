@@ -40,9 +40,9 @@ export function TypingTagline() {
   }, [text, deleting, phraseIdx, reduce]);
 
   return (
-    <span className="font-display font-bold text-primary">
+    <span className="font-display font-bold text-foreground">
       {text}
-      <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 align-middle animate-pulse" />
+      <span className="inline-block w-[2px] h-[1em] bg-foreground ml-1 align-middle animate-pulse" />
     </span>
   );
 }
