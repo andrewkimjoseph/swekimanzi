@@ -7,8 +7,13 @@ import logoGoodpax from "../assets/logo-goodpax.png.asset.json";
 import logoPax from "../assets/logo-pax.png.asset.json";
 import logoRez from "../assets/logo-rez.png.asset.json";
 import logoSalamander from "../assets/logo-salamander.png.asset.json";
+import photoTeamCanvassing from "../assets/photo-team-canvassing.jpg.asset.json";
+import badgeBwc7 from "../assets/badge-bwc7.png.asset.json";
+import badgeCelo from "../assets/badge-celo.png.asset.json";
+import badgeGooddollar from "../assets/badge-gooddollar.png.asset.json";
+import badgePrezenti from "../assets/badge-prezenti.png.asset.json";
 
-const ASSET_MAP: Record<string, { url: string }> = {
+const ASSET_MAP: Record<string, { url: string; fit?: "cover" | "contain" }> = {
   "logo-canvassing": logoCanvassing,
   "logo-celeste": logoCeleste,
   "logo-celina": logoCelina,
@@ -17,7 +22,13 @@ const ASSET_MAP: Record<string, { url: string }> = {
   "logo-pax": logoPax,
   "logo-rez": logoRez,
   "logo-salamander": logoSalamander,
+  "photo-team-canvassing": { ...photoTeamCanvassing, fit: "cover" },
+  "badge-bwc7": { ...badgeBwc7, fit: "contain" },
+  "badge-celo": { ...badgeCelo, fit: "contain" },
+  "badge-gooddollar": { ...badgeGooddollar, fit: "contain" },
+  "badge-prezenti": { ...badgePrezenti, fit: "contain" },
 };
+
 
 interface PlaceholderImageProps {
   assetId: string;
@@ -48,9 +59,10 @@ export function PlaceholderImage({
         <img
           src={asset.url}
           alt={label}
-          className="w-full h-full object-cover"
+          className={`w-full h-full ${asset.fit === "contain" ? "object-contain p-4" : "object-cover"}`}
         />
       ) : (
+
         <span className="font-display text-[11px] uppercase tracking-widest text-foreground/70 px-2 text-center">
           [REPLACE: {label}]
         </span>
