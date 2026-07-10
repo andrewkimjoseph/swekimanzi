@@ -28,7 +28,6 @@ const EXPERIENCE = [
   { period: "2026 – present", role: "Creator", org: "Celina", desc: "Solo-built an open-source SDK and MCP stack that gives AI agents a wallet on Celo." },
   { period: "2025 – present", role: "Co-Founder & Technical Lead", org: "Salamander Tech Hub", desc: "Co-founded and runs technical architecture for a Kenyan open-source builder community." },
   { period: "2023 – 2024", role: "Founding Engineer", org: "Partify", desc: "Built Partify end-to-end as founding engineer — Flutter mobile app, Stripe marketplace payouts, Firebase backend, real-time chat, and ops/admin web tools." },
-  { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
 ];
 
 const HIGHLIGHTS = [
@@ -164,15 +163,28 @@ function AboutPage() {
       <section className="flex flex-col gap-4">
         <span className="section-label-inverse w-fit">Education</span>
         <Reveal>
-          <div className="card">
-            <div className="grid grid-cols-3 gap-3 text-sm">
-              <div className="font-display uppercase tracking-widest text-xs">Year</div>
-              <div className="font-display uppercase tracking-widest text-xs">Degree</div>
-              <div className="font-display uppercase tracking-widest text-xs">Institution</div>
-              <div>[FILL]</div>
-              <div>[FILL]</div>
-              <div>[FILL]</div>
-            </div>
+          <div className="card p-0 overflow-hidden">
+            <table className="w-full text-sm">
+              <thead className="bg-muted font-display uppercase tracking-widest text-xs">
+                <tr className="border-b border-border">
+                  <th className="text-left p-3">Year</th>
+                  <th className="text-left p-3">Degree</th>
+                  <th className="text-left p-3 hidden sm:table-cell">Institution</th>
+                </tr>
+              </thead>
+              <tbody>
+                {EDUCATION.map((e, i) => (
+                  <tr key={i} className={i < EDUCATION.length - 1 ? "border-b border-border" : ""}>
+                    <td className="p-3 font-display font-semibold whitespace-nowrap align-top">{e.year}</td>
+                    <td className="p-3 align-top">
+                      <div className="font-semibold">{e.degree}</div>
+                      <div className="sm:hidden text-xs text-foreground/70">{e.institution}</div>
+                    </td>
+                    <td className="p-3 hidden sm:table-cell align-top">{e.institution}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </Reveal>
       </section>
