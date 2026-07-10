@@ -127,6 +127,7 @@
 
 @utility btn-hero-primary {
   width: 100%;
+  max-width: 220px;
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
   font-family: var(--font-display);
@@ -148,7 +149,8 @@
 
 @utility btn-hero-tertiary {
   width: 100%;
-  background-color: transparent;
+  max-width: 220px;
+ background-color: transparent;
   color: var(--color-foreground);
   font-family: var(--font-display);
   font-weight: 800;
