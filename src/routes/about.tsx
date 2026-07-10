@@ -127,20 +127,6 @@ function AboutPage() {
         <Reveal delay={0.25}>
           <PlaceholderImage assetId="photo-salamander-community" label="Salamander community" aspect="video" />
         </Reveal>
-
-        <Reveal delay={0.3}>
-          <article className="card">
-            <div className="flex flex-col sm:flex-row gap-4">
-              <PlaceholderImage assetId="logo-partify" label="Partify" aspect="square" className="w-20 h-20 shrink-0" />
-              <div className="flex-1">
-                <h2 className="font-display font-bold text-xl">Partify</h2>
-                <p className="mt-2 text-sm leading-relaxed">
-                  Built Partify end-to-end as founding engineer — Flutter mobile app, Stripe Connect payments & scheduled host payouts, Firebase Cloud Functions backend, Stream Chat + custom audio messaging, Branch deep links, and internal manager tooling. Shipped consumer app to v1.6.7 across iOS and Android.
-                </p>
-              </div>
-            </div>
-          </article>
-        </Reveal>
       </section>
 
       {/* EXPERIENCE */}
