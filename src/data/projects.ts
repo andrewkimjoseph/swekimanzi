@@ -72,18 +72,6 @@ export const projects = [
     featured: true,
   },
   {
-    id: "salamander-shop",
-    name: "Salamander Shop",
-    tagline: "Community e-commerce with Paystack + M-Pesa.",
-    description:
-      "Full-stack merch shop for Salamander Tech Hub and Wajenzi Hack 1.0 sponsors. JWT auth, Paystack payments (cards, M-Pesa STK, USSD), order management, and admin panel.",
-    url: "https://github.com/Salamander-Tech-Hub/salamander-shop",
-    github: "https://github.com/Salamander-Tech-Hub/salamander-shop",
-    tags: ["React", "Express", "SQLite", "Paystack", "M-Pesa"],
-    assetId: "logo-salamander",
-    featured: false,
-  },
-  {
     id: "good-pax-app",
     name: "Good Pax App",
     tagline: "Farcaster MiniApp — GoodDollar UBI meets Pax discovery.",
