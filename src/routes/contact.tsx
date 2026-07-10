@@ -49,7 +49,7 @@ function ContactPage() {
         </div>
       </Reveal>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-5">
         <Reveal>
           <a href={`mailto:${socialLinks.email}`} className="btn-hero-primary">
             Email — {socialLinks.email}
