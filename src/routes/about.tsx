@@ -31,9 +31,9 @@ const EXPERIENCE = [
 ];
 
 const EDUCATION = [
-  { year: "2021", degree: "Bachelor of Education (Arts) — English and Literature", institution: "Kenyatta University" },
   { year: "2024", degree: "Software Engineering", institution: "ALX Africa" },
   { year: "2022", degree: "Mobile App Development — Flutter", institution: "Power Learn Project" },
+  { year: "2021", degree: "Bachelor of Education (Arts) — English and Literature", institution: "Kenyatta University" },
 ];
 
 const HIGHLIGHTS = [
