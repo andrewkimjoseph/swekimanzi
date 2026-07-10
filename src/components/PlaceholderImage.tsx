@@ -4,6 +4,7 @@ import logoCeleste from "../assets/logo-celeste.png.asset.json";
 import logoCelina from "../assets/logo-celina.png.asset.json";
 import logoGoclaim from "../assets/logo-goclaim.png.asset.json";
 import logoGoodpax from "../assets/logo-goodpax.png.asset.json";
+import logoPartify from "../assets/logo-partify.png.asset.json";
 import logoPax from "../assets/logo-pax.png.asset.json";
 import logoRez from "../assets/logo-rez.png.asset.json";
 import logoSalamander from "../assets/logo-salamander.png.asset.json";
