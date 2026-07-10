@@ -169,7 +169,7 @@ function MobileNav({
   const reduce = useReducedMotion();
 
   return (
-    <div className="md:hidden">
+    <div className="relative md:hidden">
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
