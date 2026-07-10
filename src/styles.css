@@ -152,9 +152,10 @@
   color: var(--color-foreground);
   font-family: var(--font-display);
   font-weight: 800;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.875rem 1.25rem;
+  padding: 0.625rem 1rem;
   border: 2px solid var(--color-border);
   box-shadow: var(--shadow-brutal);
   border-radius: 0;
