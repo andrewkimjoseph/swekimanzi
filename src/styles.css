@@ -74,16 +74,22 @@
 }
 
 @utility header-bar {
-  padding-block: 1rem;
+  padding-block: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
   border-bottom: 1px solid var(--color-border);
   position: sticky;
   top: 0;
   z-index: 50;
   background-color: color-mix(in oklab, var(--color-background) 85%, transparent);
   backdrop-filter: blur(10px);
+}
+@media (min-width: 768px) {
+  .header-bar {
+    padding-block: 1rem;
+  }
 }
 
 @utility section-label-inverse {
@@ -208,6 +214,44 @@
   color: var(--color-primary);
   font-family: var(--font-display);
   font-weight: 600;
+}
+
+@utility nav-segmented {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+  background-color: color-mix(in oklab, var(--color-background) 50%, transparent);
+  border: 1px solid color-mix(in oklab, var(--color-primary) 10%, transparent);
+  border-radius: 0.75rem;
+  padding: 0.25rem;
+  flex-shrink: 0;
+}
+
+@utility nav-segmented-item {
+  padding: 0.375rem 0.625rem;
+  font-size: 0.625rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: color-mix(in oklab, var(--color-foreground) 60%, transparent);
+  border-radius: 0.5rem;
+  transition: color 0.15s, background-color 0.15s;
+  white-space: nowrap;
+}
+.nav-segmented-item:hover { color: var(--color-foreground); }
+
+@utility nav-segmented-item-active {
+  background-color: var(--color-foreground);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+@media (min-width: 768px) {
+  .nav-segmented-item {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
 }
 
 @utility shadow-brutal {
