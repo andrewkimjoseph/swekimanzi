@@ -69,12 +69,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Founder of Canvassing, creator of Celina, and co-founder of Salamander Tech Hub.",
+          "Founder of Canvassing, creator of Celina, and co-founder of Salamander Tech Hub. Research marketplaces, AI agents, and open-source communities in Africa.",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "Andrew Kim Joseph" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@andrewkimjoseph" },
+      { name: "twitter:title", content: "Andrew Kim Joseph | Founder & Builder on Celo" },
+      { name: "twitter:description", content: "Founder of Canvassing, creator of Celina, and co-founder of Salamander Tech Hub. Research marketplaces, AI agents, and open-source communities in Africa." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c0a4376e-6752-4dfc-a851-83bf85ac0ff7/id-preview-35d832e5--db3652a8-5083-4f7f-9f98-120518b86d0e.lovable.app-1783683993946.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/c0a4376e-6752-4dfc-a851-83bf85ac0ff7/id-preview-35d832e5--db3652a8-5083-4f7f-9f98-120518b86d0e.lovable.app-1783683993946.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
