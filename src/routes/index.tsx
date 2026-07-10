@@ -62,7 +62,7 @@ function HomePage() {
             initial={reduce ? false : { y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.05, duration: 0.5 }}
-            className="font-display font-extrabold text-4xl md:text-5xl text-white leading-[1.05] tracking-tight"
+            className="font-display font-extrabold text-4xl md:text-5xl text-foreground leading-[1.05] tracking-tight"
           >
             Andrew Kim Joseph
           </motion.h1>
@@ -70,7 +70,7 @@ function HomePage() {
             initial={reduce ? false : { y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="text-lg text-white/85 min-h-[3rem]"
+            className="text-lg text-foreground/85 min-h-[3rem]"
           >
             <TypingTagline />
           </motion.p>
@@ -78,7 +78,7 @@ function HomePage() {
             initial={reduce ? false : { y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-sm text-white/80 leading-relaxed"
+            className="text-sm text-foreground/80 leading-relaxed"
           >
             I co-founded Canvassing, built Celina from scratch, and lead
             Salamander Tech Hub in Kenya.
@@ -127,7 +127,7 @@ function HomePage() {
       <section className="flex flex-col gap-6">
         <div className="flex items-center justify-between flex-wrap gap-3">
           <span className="section-label-inverse w-fit">Selected work</span>
-          <Link to="/work" className="font-display uppercase tracking-widest text-xs text-white/85 underline underline-offset-4">
+          <Link to="/work" className="font-display uppercase tracking-widest text-xs text-foreground/85 underline underline-offset-4">
             See all →
           </Link>
         </div>

@@ -44,10 +44,10 @@ function AboutPage() {
   return (
     <div className="py-8 flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-white tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-foreground tracking-tight">
           About
         </h1>
-        <p className="text-sm text-white/80">
+        <p className="text-sm text-foreground/80">
           Founder, builder, and community lead based in Kenya.
         </p>
       </header>
@@ -135,8 +135,8 @@ function AboutPage() {
         <Reveal>
           <div className="card p-0 overflow-hidden">
             <table className="w-full text-sm">
-              <thead className="bg-[#c9beff] font-display uppercase tracking-widest text-xs">
-                <tr className="border-b-2 border-black">
+              <thead className="bg-muted font-display uppercase tracking-widest text-xs">
+                <tr className="border-b border-border">
                   <th className="text-left p-3">Period</th>
                   <th className="text-left p-3">Role</th>
                   <th className="text-left p-3 hidden sm:table-cell">Organization</th>
@@ -144,12 +144,12 @@ function AboutPage() {
               </thead>
               <tbody>
                 {EXPERIENCE.map((e, i) => (
-                  <tr key={i} className={i < EXPERIENCE.length - 1 ? "border-b-2 border-black" : ""}>
+                  <tr key={i} className={i < EXPERIENCE.length - 1 ? "border-b border-border" : ""}>
                     <td className="p-3 font-display font-semibold whitespace-nowrap align-top">{e.period}</td>
                     <td className="p-3 align-top">
                       <div className="font-semibold">{e.role}</div>
-                      <div className="sm:hidden text-xs text-black/70">{e.org}</div>
-                      <div className="text-xs text-black/70 mt-1">{e.desc}</div>
+                      <div className="sm:hidden text-xs text-foreground/70">{e.org}</div>
+                      <div className="text-xs text-foreground/70 mt-1">{e.desc}</div>
                     </td>
                     <td className="p-3 hidden sm:table-cell align-top">{e.org}</td>
                   </tr>

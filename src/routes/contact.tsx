@@ -33,10 +33,10 @@ function ContactPage() {
   return (
     <div className="py-8 flex flex-col gap-10">
       <header className="flex flex-col gap-3">
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-white tracking-tight">
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl text-foreground tracking-tight">
           Contact
         </h1>
-        <p className="text-sm text-white/80">Open to collaborating on interesting projects.</p>
+        <p className="text-sm text-foreground/80">Open to collaborating on interesting projects.</p>
       </header>
 
       <Reveal>
@@ -67,7 +67,7 @@ function ContactPage() {
               <div className="flex items-center justify-between gap-3">
                 <div>
                   <div className="font-display font-bold text-lg">{l.label}</div>
-                  <div className="text-xs text-black/70">{l.hint}</div>
+                  <div className="text-xs text-foreground/70">{l.hint}</div>
                 </div>
                 <span className="font-display uppercase tracking-widest text-xs">Open →</span>
               </div>
