@@ -8,6 +8,7 @@ import logoPax from "../assets/logo-pax.png.asset.json";
 import logoRez from "../assets/logo-rez.png.asset.json";
 import logoSalamander from "../assets/logo-salamander.png.asset.json";
 import photoTeamCanvassing from "../assets/photo-team-canvassing.jpg.asset.json";
+import photoSalamanderCommunity from "../assets/photo-salamander-community.jpg.asset.json";
 import badgeBwc7 from "../assets/badge-bwc7.png.asset.json";
 import badgeCelo from "../assets/badge-celo.png.asset.json";
 import badgeGooddollar from "../assets/badge-gooddollar.png.asset.json";
@@ -23,6 +24,7 @@ const ASSET_MAP: Record<string, { url: string; fit?: "cover" | "contain" }> = {
   "logo-rez": logoRez,
   "logo-salamander": logoSalamander,
   "photo-team-canvassing": { ...photoTeamCanvassing, fit: "cover" },
+  "photo-salamander-community": { ...photoSalamanderCommunity, fit: "cover" },
   "badge-bwc7": { ...badgeBwc7, fit: "contain" },
   "badge-celo": { ...badgeCelo, fit: "contain" },
   "badge-gooddollar": { ...badgeGooddollar, fit: "contain" },
