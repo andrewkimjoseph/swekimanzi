@@ -8,10 +8,8 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, useState, type ReactNode } from "react";
-import { createPortal } from "react-dom";
+import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -118,13 +116,6 @@ const NAV = [
 
 function Header() {
   const reduce = useReducedMotion();
-  const [isOpen, setIsOpen] = useState(false);
-  const pathname = useRouterState({ select: (s) => s.location.pathname });
-
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <motion.header
       initial={reduce ? false : { y: -16, opacity: 0 }}
@@ -135,119 +126,20 @@ function Header() {
       <Link to="/" className="font-display font-extrabold text-2xl text-foreground tracking-tight">
         AKJ
       </Link>
-
-      <DesktopNav />
-      <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+      <nav className="flex gap-2 flex-wrap justify-end">
+        {NAV.map((n) => (
+          <Link
+            key={n.to}
+            to={n.to}
+            className="section-label-inverse"
+            activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
+            activeOptions={{ exact: true }}
+          >
+            {n.label}
+          </Link>
+        ))}
+      </nav>
     </motion.header>
-  );
-}
-
-function DesktopNav() {
-  return (
-    <nav className="hidden md:flex gap-2">
-      {NAV.map((n) => (
-        <Link
-          key={n.to}
-          to={n.to}
-          className="section-label-inverse"
-          activeProps={{ className: "section-label-inverse pill-link bg-primary/10" }}
-          activeOptions={{ exact: true }}
-        >
-          {n.label}
-        </Link>
-      ))}
-    </nav>
-  );
-}
-
-function MobileNav({
-  isOpen,
-  setIsOpen,
-}: {
-  isOpen: boolean;
-  setIsOpen: (open: boolean) => void;
-}) {
-  const reduce = useReducedMotion();
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add("overflow-hidden");
-    } else {
-      document.body.classList.remove("overflow-hidden");
-    }
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, [isOpen]);
-
-  return (
-    <div className="md:hidden">
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        aria-controls="mobile-nav-menu"
-        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
-        className="grid h-10 w-10 place-items-center rounded-sm border border-border bg-muted text-foreground transition-colors hover:border-primary/40 hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-      >
-        {isOpen ? <X size={20} strokeWidth={2.5} /> : <Menu size={20} strokeWidth={2.5} />}
-      </button>
-
-      <AnimatePresence initial={false}>
-        {isOpen &&
-          typeof document !== "undefined" &&
-          createPortal(
-            <>
-              <motion.div
-                initial={reduce ? undefined : { opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={reduce ? undefined : { opacity: 0 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed inset-0 z-40 bg-overlay/50 backdrop-blur-sm"
-                onClick={() => setIsOpen(false)}
-                aria-hidden="true"
-              />
-              <motion.nav
-                id="mobile-nav-menu"
-                initial={reduce ? undefined : { x: "100%" }}
-                animate={{ x: 0 }}
-                exit={reduce ? undefined : { x: "100%" }}
-                transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed top-0 right-0 z-50 h-full w-[72%] max-w-xs border-l border-border bg-background p-6 shadow-brutal-lg"
-              >
-                <div className="flex h-full flex-col">
-                  <div className="mb-8 flex items-center justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setIsOpen(false)}
-                      aria-label="Close navigation menu"
-                      className="grid h-10 w-10 place-items-center rounded-sm border border-border bg-muted text-foreground transition-colors hover:border-primary/40 hover:bg-muted/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                    >
-                      <X size={20} strokeWidth={2.5} />
-                    </button>
-                  </div>
-                  <ul className="flex flex-col gap-2">
-                    {NAV.map((n) => (
-                      <li key={n.to}>
-                        <Link
-                          to={n.to}
-                          onClick={() => setIsOpen(false)}
-                          className="block w-full rounded-sm px-4 py-3 text-left font-display text-base font-semibold uppercase tracking-widest text-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:bg-muted focus-visible:text-primary focus-visible:outline-none"
-                          activeProps={{ className: "block w-full rounded-sm px-4 py-3 text-left font-display text-base font-semibold uppercase tracking-widest text-primary bg-primary/10" }}
-                          activeOptions={{ exact: true }}
-                        >
-                          {n.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.nav>
-            </>,
-            document.body,
-          )}
-      </AnimatePresence>
-    </div>
   );
 }
 
