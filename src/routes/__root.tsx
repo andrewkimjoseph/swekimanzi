@@ -200,7 +200,7 @@ function MobileNav({
               animate={{ opacity: 1 }}
               exit={reduce ? undefined : { opacity: 0 }}
               transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-0 z-40 bg-background/70 backdrop-blur-sm"
+              className="fixed inset-0 z-40 bg-overlay/50 backdrop-blur-sm"
               onClick={() => setIsOpen(false)}
               aria-hidden="true"
             />
