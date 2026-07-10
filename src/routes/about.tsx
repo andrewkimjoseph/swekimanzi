@@ -25,7 +25,7 @@ export const Route = createFileRoute("/about")({
 
 const EXPERIENCE = [
   { period: "2024 – present", role: "Founder & Builder", org: "Canvassing", desc: "[FILL: your one-liner]" },
-  { period: "2025 – present", role: "Creator", org: "Celina", desc: "[FILL: your one-liner]" },
+  { period: "2026 – present", role: "Creator", org: "Celina", desc: "[FILL: your one-liner]" },
   { period: "[YEAR] – present", role: "Co-Founder & Technical Lead", org: "Salamander Tech Hub", desc: "[FILL: your one-liner]" },
   { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
   { period: "[YEAR] – [YEAR]", role: "[ROLE]", org: "[COMPANY]", desc: "[FILL: prior role]" },
