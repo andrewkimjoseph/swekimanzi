@@ -77,8 +77,8 @@ export const projects = [
     tagline: "Web3 onboarding app — GoodDollar UBI meets Pax discovery.",
     description:
       "Social-native onboarding hub connecting GoodDollar identity and Pax participant tasks. Built as a standard web3 web app, also distributed as a Farcaster MiniApp.",
-    url: "https://thecanvassing.xyz",
-    github: "https://github.com/andrewkimjoseph/canvassing",
+    url: "https://github.com/andrewkimjoseph/the-good-pax-app",
+    github: "https://github.com/andrewkimjoseph/the-good-pax-app",
     tags: ["Web3", "Farcaster", "MiniApp", "GoodDollar", "React"],
     assetId: "logo-goodpax",
     featured: false,
