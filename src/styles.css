@@ -127,8 +127,7 @@
 }
 
 @utility btn-hero-primary {
-  width: 100%;
-  max-width: 220px;
+  width: auto;
   background-color: var(--color-primary);
   color: var(--color-primary-foreground);
   font-family: var(--font-display);
@@ -136,7 +135,7 @@
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.625rem 1rem;
+  padding: 0.625rem 1.25rem;
   border: 2px solid var(--color-border);
   box-shadow: var(--shadow-brutal);
   border-radius: 0;
@@ -149,16 +148,15 @@
 .btn-hero-primary:active { transform: translate(4px, 4px); box-shadow: none; }
 
 @utility btn-hero-tertiary {
-  width: 100%;
-  max-width: 220px;
- background-color: transparent;
+  width: auto;
+  background-color: transparent;
   color: var(--color-foreground);
   font-family: var(--font-display);
   font-weight: 800;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  padding: 0.625rem 1rem;
+  padding: 0.625rem 1.25rem;
   border: 2px solid var(--color-border);
   box-shadow: var(--shadow-brutal);
   border-radius: 0;
