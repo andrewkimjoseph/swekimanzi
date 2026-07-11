@@ -5,8 +5,8 @@ export const projects = [
     tagline: "Celo-native research marketplace — Insights + Intelligence wings.",
     description:
       "Umbrella platform connecting African researchers and founders with verified participants for surveys, product tests, and polls. Participants earn crypto rewards; researchers get structured feedback in 48–72 hours.",
-    url: "https://thecanvassing.xyz",
-    github: "https://github.com/andrewkimjoseph/canvassing",
+    url: "https://github.com/orgs/thecanvassing",
+    github: "https://github.com/orgs/thecanvassing",
     tags: ["Celo", "GoodDollar", "Next.js", "Flutter", "Vite"],
     assetId: "logo-canvassing",
     featured: true,
