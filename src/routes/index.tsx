@@ -29,7 +29,7 @@ const PILLARS = [
     id: "salamander",
     title: "Salamander",
     href: "https://github.com/Salamander-Tech-Hub",
-    body: "Kenyan open-source tech hub I co-founded — Build. Burn. Evolve. Organized Wajenzi Hack 1.0, runs community programs, and supports builders across Kenya. 500+ active members.",
+    body: "Kenyan open-source tech hub I co-founded — Build. Burn. Evolve. Organized Wajenzi Hack 1.0, runs community programs, and supports builders across Kenya. 50+ active members.",
     asset: "logo-salamander",
   },
 ];
