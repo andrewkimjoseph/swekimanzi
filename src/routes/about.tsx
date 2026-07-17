@@ -123,7 +123,7 @@ function AboutPage() {
               Co-founded <strong>Salamander Tech Hub</strong> — a Kenyan open-source
               community with the motto <strong>Build. Burn. Evolve.</strong> Organized{" "}
               <strong>Wajenzi Hack 1.0</strong>, leads technical architecture, and
-              supports community programs with 500+ active members and 1,000+
+              supports community programs with 50+ active members and 100+
               contributions.
             </p>
           </article>
