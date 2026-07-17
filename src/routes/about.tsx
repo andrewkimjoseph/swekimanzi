@@ -31,9 +31,9 @@ const EXPERIENCE = [
 ];
 
 const EDUCATION = [
-  { year: "2024", degree: "Software Engineering", institution: "ALX Africa" },
-  { year: "2022", degree: "Mobile App Development — Flutter", institution: "Power Learn Project" },
-  { year: "2021", degree: "Bachelor of Education (Arts) — English and Literature", institution: "Kenyatta University" },
+  { year: "2024", accomplishment: "Software Engineering", institution: "ALX Africa" },
+  { year: "2022", accomplishment: "Mobile App Development — Flutter", institution: "Power Learn Project" },
+  { year: "2021", accomplishment: "Bachelor of Education (Arts) — English and Literature", institution: "Kenyatta University" },
 ];
 
 const HIGHLIGHTS = [
@@ -174,7 +174,7 @@ function AboutPage() {
               <thead className="bg-muted font-display uppercase tracking-widest text-xs">
                 <tr className="border-b border-border">
                   <th className="text-left p-3">Year</th>
-                  <th className="text-left p-3">Degree</th>
+                  <th className="text-left p-3">Accomplishment</th>
                   <th className="text-left p-3 hidden sm:table-cell">Institution</th>
                 </tr>
               </thead>
@@ -183,7 +183,7 @@ function AboutPage() {
                   <tr key={i} className={i < EDUCATION.length - 1 ? "border-b border-border" : ""}>
                     <td className="p-3 font-display font-semibold whitespace-nowrap align-top">{e.year}</td>
                     <td className="p-3 align-top">
-                      <div className="font-semibold">{e.degree}</div>
+                      <div className="font-semibold">{e.accomplishment}</div>
                       <div className="sm:hidden text-xs text-foreground/70">{e.institution}</div>
                     </td>
                     <td className="p-3 hidden sm:table-cell align-top">{e.institution}</td>
