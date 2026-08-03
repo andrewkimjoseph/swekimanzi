@@ -93,6 +93,18 @@ export const projects = [
     assetId: "logo-partify",
     featured: false,
   },
+  {
+    id: "days-to-go",
+    name: "Days To Go",
+    tagline: "Playful brutalist countdown timers — local-first, no account.",
+    description:
+      "Run as many countdowns as you like, from 3 seconds to years out, ticking to the second with confetti and a chime at zero. Duration or end-date modes, categories, a custom brutalist date/time picker, and IndexedDB persistence — nothing leaves the browser.",
+    url: "https://daystogo.xyz",
+    github: "https://github.com/andrewkimjoseph",
+    tags: ["TanStack Start", "React 19", "Tailwind v4", "Dexie", "TypeScript"],
+    assetId: "logo-daystogo",
+    featured: false,
+  },
 ];
 
 export type Project = (typeof projects)[number];

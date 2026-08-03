@@ -2,6 +2,7 @@ const ASSET_MAP: Record<string, { url: string; fit?: "cover" | "contain" }> = {
   "logo-canvassing": { url: "/logo-canvassing.png" },
   "logo-celeste": { url: "/logo-celeste.png" },
   "logo-celina": { url: "/logo-celina.png" },
+  "logo-daystogo": { url: "/logo-daystogo.svg", fit: "contain" },
   "logo-goclaim": { url: "/logo-goclaim.png" },
   "logo-goodpax": { url: "/logo-goodpax.png" },
   "logo-partify": { url: "/logo-partify.png" },
