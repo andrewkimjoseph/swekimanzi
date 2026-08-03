@@ -98,12 +98,13 @@ function HomePage() {
       </section>
 
       {/* PILLARS */}
-      <section className="flex flex-col gap-6">
-        <span className="section-label-inverse w-fit">What I build</span>
-        <div className="grid gap-8">
-          {PILLARS.map((p, i) => (
-            <Reveal key={p.id} delay={i * 0.1}>
+      <Reveal when="mount" delay={0.45}>
+        <section className="flex flex-col gap-6">
+          <span className="section-label-inverse w-fit">What I build</span>
+          <div className="grid gap-8">
+            {PILLARS.map((p) => (
               <a
+                key={p.id}
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -120,23 +121,24 @@ function HomePage() {
                   </div>
                 </div>
               </a>
-            </Reveal>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      </Reveal>
 
       {/* FEATURED PROJECTS */}
-      <section className="flex flex-col gap-6">
-        <div className="flex items-center justify-between flex-wrap gap-3">
-          <span className="section-label-inverse w-fit">Selected work</span>
-          <Link to="/work" className="font-display uppercase tracking-widest text-xs text-foreground/85 underline underline-offset-4">
-            See all →
-          </Link>
-        </div>
-        <div className="grid sm:grid-cols-2 gap-8">
-          {featured.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 2) * 0.08}>
+      <Reveal>
+        <section className="flex flex-col gap-6">
+          <div className="flex items-center justify-between flex-wrap gap-3">
+            <span className="section-label-inverse w-fit">Selected work</span>
+            <Link to="/work" className="font-display uppercase tracking-widest text-xs text-foreground/85 underline underline-offset-4">
+              See all →
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-8">
+            {featured.map((p) => (
               <a
+                key={p.id}
                 href={p.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -154,36 +156,40 @@ function HomePage() {
                 </div>
                 <p className="mt-auto pt-2 font-display uppercase tracking-widest text-xs">Visit →</p>
               </a>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* STACK MARQUEE */}
-      <section className="flex flex-col gap-4">
-        <span className="section-label-inverse w-fit">Stack</span>
-        <div className="-mx-4">
-          <StackMarquee />
-        </div>
-      </section>
-
-      {/* ECOSYSTEM */}
-      <section className="flex flex-col gap-4">
-        <span className="section-label-inverse w-fit">Ecosystem</span>
-        <div className="card">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {PARTNERS.map((p) => (
-              <div key={p.id} className="w-full">
-                <PlaceholderImage assetId={p.id} label={p.label} aspect="video" />
-              </div>
             ))}
           </div>
-          <p className="mt-4 text-sm">
-            Supported by Prezenti grants. Default rewards in GoodDollar (G$).
-            Building on Celo mainnet.
-          </p>
-        </div>
-      </section>
+        </section>
+      </Reveal>
+
+      {/* STACK MARQUEE */}
+      <Reveal>
+        <section className="flex flex-col gap-4">
+          <span className="section-label-inverse w-fit">Stack</span>
+          <div className="-mx-4">
+            <StackMarquee />
+          </div>
+        </section>
+      </Reveal>
+
+      {/* ECOSYSTEM */}
+      <Reveal>
+        <section className="flex flex-col gap-4">
+          <span className="section-label-inverse w-fit">Ecosystem</span>
+          <div className="card">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {PARTNERS.map((p) => (
+                <div key={p.id} className="w-full">
+                  <PlaceholderImage assetId={p.id} label={p.label} aspect="video" />
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-sm">
+              Supported by Prezenti grants. Default rewards in GoodDollar (G$).
+              Building on Celo mainnet.
+            </p>
+          </div>
+        </section>
+      </Reveal>
     </div>
   );
 }
