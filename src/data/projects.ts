@@ -99,7 +99,7 @@ export const projects = [
     tagline: "Playful brutalist countdown timers — local-first, no account.",
     description:
       "A playful, brutalist countdown timer web app. Run as many clocks as you like — a quick 3-second timer or a date years out — ticking down to the second, with a burst of confetti and a chime when the timer hits zero. Local-first: your timers live in your browser, so there's no account and no server to trust. Put a clock on it.",
-    url: "https://daystogo.xyz",
+    url: "https://app.daystogo.xyz",
     github: "https://github.com/andrewkimjoseph",
     tags: ["TanStack Start", "React 19", "Tailwind v4", "Dexie", "TypeScript"],
     assetId: "logo-daystogo",
