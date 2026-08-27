@@ -138,7 +138,7 @@ function Header() {
             to={n.to}
             className="nav-segmented-item"
             activeProps={{ className: "nav-segmented-item-active" }}
-            activeOptions={{ exact: true }}
+            activeOptions={{ exact: n.to === "/" }}
           >
             {n.label}
           </Link>

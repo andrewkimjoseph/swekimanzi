@@ -14,16 +14,18 @@ const PILLARS = [
   {
     id: "canvassing",
     title: "Canvassing",
-    href: "https://thecanvassing.xyz",
+    slug: "canvassing" as const,
     body: "A Celo-native research marketplace connecting African researchers with verified participants. Participants earn GoodDollar (G$) rewards through Pax (mobile app); researchers run studies via Rez (dashboard). Founded 2024 at Build with Celo 7.",
     asset: "logo-canvassing",
+    cta: "Read case →",
   },
   {
     id: "celina",
     title: "Celina",
-    href: "https://usecelina.xyz",
-    body: "A solo-built Celo agent stack — TypeScript SDK, MCP server, hosted endpoint, and Celeste wallet chat. 54 tools for DeFi, governance, GoodDollar UBI, and on-chain reads. Published on npm as @andrewkimjoseph/celina-sdk.",
+    slug: "celina" as const,
+    body: "A solo-built Celo agent stack — TypeScript SDK, MCP server, hosted endpoint, and Celeste wallet chat. 87 tools for DeFi, governance, GoodDollar UBI, and on-chain reads (48 on the hosted MCP). Published on npm as @andrewkimjoseph/celina-sdk.",
     asset: "logo-celina",
+    cta: "Read case →",
   },
   {
     id: "salamander",
@@ -31,6 +33,7 @@ const PILLARS = [
     href: "https://github.com/Salamander-Tech-Hub",
     body: "Kenyan open-source tech hub I co-founded — Build. Burn. Evolve. Organized Wajenzi Hack 1.0, runs community programs, and supports builders across Kenya. 50+ active members.",
     asset: "logo-salamander",
+    cta: "Visit →",
   },
 ];
 
@@ -102,14 +105,8 @@ function HomePage() {
         <section className="flex flex-col gap-6">
           <span className="section-label-inverse w-fit">What I build</span>
           <div className="grid gap-8">
-            {PILLARS.map((p) => (
-              <a
-                key={p.id}
-                href={p.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="card-muted block hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-lg transition-transform"
-              >
+            {PILLARS.map((p) => {
+              const inner = (
                 <div className="flex gap-4 items-start">
                   <div className="w-16 shrink-0">
                     <PlaceholderImage assetId={p.asset} label={p.title} />
@@ -117,11 +114,33 @@ function HomePage() {
                   <div className="flex-1">
                     <h3 className="font-display font-extrabold text-2xl">{p.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed">{p.body}</p>
-                    <p className="mt-3 font-display uppercase tracking-widest text-xs">Visit →</p>
+                    <p className="mt-3 font-display uppercase tracking-widest text-xs">{p.cta}</p>
                   </div>
                 </div>
-              </a>
-            ))}
+              );
+              const className =
+                "card-muted block hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-brutal-lg transition-transform";
+              return "slug" in p ? (
+                <Link
+                  key={p.id}
+                  to="/work/$slug"
+                  params={{ slug: p.slug }}
+                  className={className}
+                >
+                  {inner}
+                </Link>
+              ) : (
+                <a
+                  key={p.id}
+                  href={p.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {inner}
+                </a>
+              );
+            })}
           </div>
         </section>
       </Reveal>
@@ -137,11 +156,10 @@ function HomePage() {
           </div>
           <div className="grid sm:grid-cols-2 gap-8">
             {featured.map((p) => (
-              <a
+              <Link
                 key={p.id}
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
+                to="/work/$slug"
+                params={{ slug: p.id }}
                 className="project-card h-full"
               >
                 <div className="w-12">
@@ -154,8 +172,8 @@ function HomePage() {
                     <span key={t} className="tech-badge">{t}</span>
                   ))}
                 </div>
-                <p className="mt-auto pt-2 font-display uppercase tracking-widest text-xs">Visit →</p>
-              </a>
+                <p className="mt-auto pt-2 font-display uppercase tracking-widest text-xs">Read case →</p>
+              </Link>
             ))}
           </div>
         </section>

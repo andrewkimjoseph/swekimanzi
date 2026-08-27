@@ -80,7 +80,11 @@ function AboutPage() {
 
         <Reveal delay={0.1}>
           <article className="card">
-            <h2 className="font-display font-bold text-xl">Canvassing</h2>
+            <h2 className="font-display font-bold text-xl">
+              <Link to="/work/$slug" params={{ slug: "canvassing" }} className="underline underline-offset-4">
+                Canvassing
+              </Link>
+            </h2>
             <p className="mt-2 text-sm leading-relaxed">
               Canvassing came out of the <strong>Build with Celo 7</strong> hackathon,
               where the theme was &ldquo;transform rewards and loyalty.&rdquo; About a
@@ -104,14 +108,18 @@ function AboutPage() {
 
         <Reveal delay={0.15}>
           <article className="card">
-            <h2 className="font-display font-bold text-xl">Celina</h2>
+            <h2 className="font-display font-bold text-xl">
+              <Link to="/work/$slug" params={{ slug: "celina" }} className="underline underline-offset-4">
+                Celina
+              </Link>
+            </h2>
             <p className="mt-2 text-sm leading-relaxed">
               Solo-built <strong>Celina</strong> — a Celo-native SDK and MCP stack that
-              gives LLMs and AI agents a wallet on Celo. The stack includes 54 MCP tools,
-              npm packages (<code className="text-xs">@andrewkimjoseph/celina-sdk</code>,{" "}
-              <code className="text-xs">@andrewkimjoseph/celina-mcp</code>), a hosted
-              read-only endpoint, and <strong>Celeste</strong> as a wallet-signed DeFAI
-              reference app.
+              gives LLMs and AI agents a wallet on Celo. The stack includes 87 MCP tools
+              on local stdio (48 on the hosted read-only endpoint), npm packages (
+              <code className="text-xs">@andrewkimjoseph/celina-sdk</code>,{" "}
+              <code className="text-xs">@andrewkimjoseph/celina-mcp</code>), and{" "}
+              <strong>Celeste</strong> as a wallet-signed DeFAI reference app.
             </p>
           </article>
         </Reveal>
